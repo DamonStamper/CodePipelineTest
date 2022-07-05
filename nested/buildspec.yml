@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+
+  install:
+    commands:
+      - cd my-app
+      - npm install
+
+  build:
+    commands:
+      - npm run build
+
+  post_build:
+    commands:
+      - tar -czvf archive_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}_pipelineid_${PIPELINE_EXECUTION_ID}.tar.gz build
+      - echo "Build completed on `date`"
+
+artifacts:
+  files:
+    - archive_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}_pipelineid_${PIPELINE_EXECUTION_ID}.tar.gz build
+  name: built_artifact
