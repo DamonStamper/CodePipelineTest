@@ -14,12 +14,15 @@ phases:
   post_build:
     commands:
       - echo "CODEBUILD_RESOLVED_SOURCE_VERSION = ${CODEBUILD_RESOLVED_SOURCE_VERSION}"
-      - echo "PIPELINE_EXECUTION_ID = $PIPELINE_EXECUTION_ID"
-      - tar -czvf archive_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}_pipelineid_${PIPELINE_EXECUTION_ID}.tar.gz build
+      - echo "PIPELINE_EXECUTION_ID = ${PIPELINE_EXECUTION_ID}"
+      # - tar -czvf archive_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}_pipelineid_${PIPELINE_EXECUTION_ID}.tar.gz build
       - echo "Build completed on `date`"
+      - pwd
       - ls -lha
 
 artifacts:
   files:
-    - archive_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}_pipelineid_${PIPELINE_EXECUTION_ID}.tar.gz build
-  name: built_artifact
+    # - archive_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}_pipelineid_${PIPELINE_EXECUTION_ID}.tar.gz build
+    - build/*
+  name: built_artifact_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}_pipelineid_${PIPELINE_EXECUTION_ID}
+  type: CODEPIPELINE
