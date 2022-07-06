@@ -13,8 +13,11 @@ phases:
 
   post_build:
     commands:
+      - echo "CODEBUILD_RESOLVED_SOURCE_VERSION = ${CODEBUILD_RESOLVED_SOURCE_VERSION}"
+      - echo "PIPELINE_EXECUTION_ID = $PIPELINE_EXECUTION_ID"
       - tar -czvf archive_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}_pipelineid_${PIPELINE_EXECUTION_ID}.tar.gz build
       - echo "Build completed on `date`"
+      - ls -lha
 
 artifacts:
   files:
