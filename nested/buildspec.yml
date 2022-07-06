@@ -22,6 +22,6 @@ phases:
 
 artifacts:
   files:
-    - archive_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}_pipelineid_${PIPELINE_EXECUTION_ID}.tar.gz
+    - 'archive_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}_pipelineid_${PIPELINE_EXECUTION_ID}.tar.gz'
   name: archive_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}_pipelineid_${PIPELINE_EXECUTION_ID}
   type: CODEPIPELINE
