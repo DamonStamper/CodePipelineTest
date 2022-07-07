@@ -21,6 +21,7 @@ phases:
 
 artifacts:
   files:
-    - 'react-app/build/**/*'
+    - '**/*'
+  base-directory: 'react-app/build'
   name: archive_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}_pipelineid_${PIPELINE_EXECUTION_ID}
   type: CODEPIPELINE
