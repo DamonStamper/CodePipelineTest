@@ -24,6 +24,6 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: 'build-output'
+  base-directory: 'lambda/build-output'
   name: archive_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}_pipelineid_${PIPELINE_EXECUTION_ID}
   type: CODEPIPELINE
