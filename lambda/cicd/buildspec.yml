@@ -9,7 +9,7 @@ phases:
 
   build:
     commands:
-      - npm run build
+      # - npm run build
       - mkdir build-output
       - cp -R lambda/main.js node_modules/ build-output
 
