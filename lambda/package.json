@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "nimstall": "^1.0.4"
+    "assert": "^2.0.0",
+    "aws-sdk": "^2.1172.0",
+    "http": "^0.0.1-security"
   }
 }
