@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+
+  build:
+    commands:
+      - ls
+      # - aws s3 sync ./lambda_code/zipped s3://YOUR-BUCKET-NAME/YOUR-S3-KEY --delete
+
+      # - aws lambda update-function-code --function-name YOUR-FUNCTION-NAME --s3-bucket YOUR-BUCKET-NAME --s3-key YOUR-S3-KEY-TO-FILE
