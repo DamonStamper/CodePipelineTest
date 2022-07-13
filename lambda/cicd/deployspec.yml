@@ -7,7 +7,7 @@ phases:
       - ls
       -   ls ${CODEBUILD_SRC_DIR_build_output} 
       # - cd ${CODEBUILD_SRC_DIR_build_output} 
-      - ZIP=$(ls | grep .zip)
+      - export ZIP=$(ls | grep .zip)
       - echo "s3 sync ${CODEBUILD_SRC_DIR_build_output} s3://${BUCKET_NAME}/$ZIP --delete"
       -   aws s3 sync ${CODEBUILD_SRC_DIR_build_output} s3://${BUCKET_NAME}/$ZIP --delete
       # - aws s3 sync ${CODEBUILD_SRC_DIR_build_output} s3://${BUCKET_NAME}/YOUR-S3-KEY --delete
