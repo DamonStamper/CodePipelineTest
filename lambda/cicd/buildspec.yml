@@ -12,7 +12,9 @@ phases:
       - npm install
       - mkdir build-output
       - cp -R main.js node_modules/ build-output
-      - zip -r lambda_pipeid_${PIPELINE_EXECUTION_ID}_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}.zip build-output
+      - cd build-output
+      - zip -r ../lambda_pipeid_${PIPELINE_EXECUTION_ID}_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}.zip *
+      - cd ..
 
   post_build:
     commands:
