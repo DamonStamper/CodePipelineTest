@@ -9,8 +9,8 @@ phases:
       # - cd ${CODEBUILD_SRC_DIR_build_output} 
       # - ZIP=$(ls | grep .zip)
       - echo "s3 sync ${CODEBUILD_SRC_DIR_build_output} s3://${BUCKET_NAME} --delete"
-      - aws s3 sync ${CODEBUILD_SRC_DIR_build_output} s3://${BUCKET_NAME} --delete
+      - aws s3 sync ${CODEBUILD_SRC_DIR_build_output} s3://${BUCKET_NAME}/${S3-KEY} --delete
       # - aws s3 sync ${CODEBUILD_SRC_DIR_build_output} s3://${BUCKET_NAME}/YOUR-S3-KEY --delete
-      - echo "aws lambda update-function-code --function-name ${LAMBDA_NAME} --s3-bucket ${BUCKET_NAME}"
-      - aws lambda update-function-code --function-name ${LAMBDA_NAME} --s3-bucket ${BUCKET_NAME}
+      - echo "aws lambda update-function-code --function-name ${LAMBDA_NAME} --s3-bucket ${BUCKET_NAME}/${S3-KEY}"
+      - aws lambda update-function-code --function-name ${LAMBDA_NAME} --s3-bucket ${BUCKET_NAME} --s3-key ${S3-KEY}
       # - aws lambda update-function-code --function-name ${LAMBDA_NAME} --s3-bucket ${BUCKET_NAME} --s3-key YOUR-S3-KEY-TO-FILE
