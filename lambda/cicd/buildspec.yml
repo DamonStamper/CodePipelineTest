@@ -12,18 +12,16 @@ phases:
       - npm install
       - mkdir build-output
       - cp -R main.js node_modules/ build-output
+      - zip -r lambda_pipeid_${PIPELINE_EXECUTION_ID}_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}.zip build-output
 
   post_build:
     commands:
-      - echo "CODEBUILD_RESOLVED_SOURCE_VERSION = ${CODEBUILD_RESOLVED_SOURCE_VERSION}"
-      - echo "PIPELINE_EXECUTION_ID = ${PIPELINE_EXECUTION_ID}"
       - echo "Build completed on `date`"
-      - pwd
-      - ls -lha
+      - pwd && ls -lha
 
 artifacts:
   files:
-    - '**/*'
-  base-directory: 'lambda/build-output'
+    - 'lambda_pipeid_${PIPELINE_EXECUTION_ID}_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}.zip'
+  base-directory: 'lambda'
   name: archive_commitid_${CODEBUILD_RESOLVED_SOURCE_VERSION}_pipelineid_${PIPELINE_EXECUTION_ID}
   type: CODEPIPELINE
